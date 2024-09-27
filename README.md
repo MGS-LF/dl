@@ -18,3 +18,18 @@ example.com/dl?url=目标；链接
 
 example.com/短链
 
+**伪静态**
+
+```
+location / {
+    try_files $uri $uri/ @rewrite;
+}
+
+location @rewrite {
+    rewrite ^/(.*)$ /2.php?path=$1 last;
+}
+
+```
+
+
+
